@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',  # Debug toolbar for development
-    'student_management_system',  # Your custom app
+    'student_managment_system',  # Your custom app
 ]
 
 MIDDLEWARE = [
