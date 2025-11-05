@@ -55,3 +55,8 @@ def edit(request, student_id):
                       "student": student,
                       "errors": errors,
                   })
+    
+def delete(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    student.delete()
+    return redirect('list')

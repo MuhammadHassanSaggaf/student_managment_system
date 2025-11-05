@@ -37,6 +37,10 @@
                     <button class="editbutton">
                         <a href="{% url 'edit' student.id %}" class="button">Edit</a>
                     </button>
+                    <form method="post" action="{% url 'delete' student.id %}" style="display:inline" onsubmit="return confirm('Delete {{ student.first_name }} {{ student.last_name }}?');">
+                    {% csrf_token %}
+                        <button type="submit" class="buttonsecondary">Delete</button>
+                    </form>
                 </td>
             </tr>
             {% endfor %}
