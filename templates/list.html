@@ -32,10 +32,13 @@
                 <td>{{ student.enrollment_date }}</td>
                 <td>{{ student.date_of_birth }}</td>
                 <td>{{ student.gender }}</td>
+                <td class = "edit_delete">
+
+                    <button class="editbutton">
+                        <a href="{% url 'edit' student.id %}" class="button">Edit</a>
+                    </button>
+                </td>
             </tr>
-            <button class="button">
-                <a href="{% url 'edit' student.id %}" class="button">Edit</a>
-            </button>
             {% endfor %}
         </tbody>
     </table>

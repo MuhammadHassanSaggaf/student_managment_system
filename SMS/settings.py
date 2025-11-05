@@ -125,7 +125,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # For additional static file locations during development (optional)
-STATICFILES_DIRS = [BASE_DIR / "static"]  # if you have a project-level static/
+STATICFILES_DIRS = [BASE_DIR / "student_managment_system/static"]  # if you have a project-level static/
 
 # Where `collectstatic` will gather files for production
 STATIC_ROOT = BASE_DIR / "staticfiles"
