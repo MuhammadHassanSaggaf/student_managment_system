@@ -8,5 +8,30 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+  <div class="container">
+    <h1>Student List </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Admission Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Course Taken</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.admission_number }}</td>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+                <td>{{ student.course_taken }}</td>
+                <td>{{ student.gender }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
 </body>
 </html>
