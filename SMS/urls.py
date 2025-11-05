@@ -22,4 +22,5 @@ import debug_toolbar  # Import debug toolbar for development
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),  # Debug toolbar URL
+    path('student_managment_system/', include('student_managment_system.urls')),  # Include your app's URLs
 ]
