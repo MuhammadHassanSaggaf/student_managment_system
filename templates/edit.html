@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{% if student %}Edit{% else %}Add{% endif %} Student</title>
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}?v=2">
 </head>
 <body>
   <div class="container">
@@ -49,7 +49,7 @@
 
       <div class="actions form-full" style="margin-top:12px">
         <button type="submit" class="button">{% if student %}Save Changes{% else %}Save Student{% endif %}</button>
-        <a href="{% url 'list' %}" class="buttonsecondary" style="margin-left:10px">Cancel</a>
+        <a href="{% url 'list' %}" class="buttoncancel" style="margin-left:10px">Cancel</a>
       </div>
     </form>
   </div>
