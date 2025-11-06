@@ -18,9 +18,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 import debug_toolbar  # Import debug toolbar for development
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),  # Debug toolbar URL
-    path('student_managment_system/', include('student_managment_system.urls')),  # Include your app's URLs
+    path('student_managment_system/', include('student_managment_system.urls' )),
+    path("", RedirectView.as_view(url="/student_managment_system/list/", permanent=False)),
 ]
