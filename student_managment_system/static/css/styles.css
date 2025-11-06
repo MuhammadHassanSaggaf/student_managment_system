@@ -42,8 +42,8 @@ thead th {
   text-align: left;
   font-size: 0.95rem;
   padding: 12px 14px;
-  background: linear-gradient(90deg,#f0f4f8,#fbfdff);
-  color: #0b1220;
+  background: #222;
+  color: white;
   border-bottom: 1px solid rgba(15, 19, 28, 0.06);
   font-weight: 600;
 }
@@ -56,11 +56,12 @@ tbody td {
 
 
 td, th {
-  white-space: nowrap;
+  white-space: wrap;
+  display: table-cell;
 }
 
 .button {
-  background: #2563eb;
+  background: black;
   color: #fff;
   border: none;
   padding: 10px 16px;
@@ -69,6 +70,7 @@ td, th {
   text-decoration: none;
   font-size: 0.95rem;
   width: 200px;
+  text-align: center;
 }
 
 form {
@@ -95,7 +97,34 @@ textarea {
   display: flex;
 }
 .editbutton {
-  background: #2563eb;
+  background: black;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 75px;
+  height: 32px;
+}
+
+.buttonsecondary {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 75px;
+  
+}
+
+.buttoncancel {
+  background: red;
   color: #fff;
   border: none;
   padding: 10px 16px;
@@ -103,15 +132,6 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   font-size: 0.95rem;
-}
-
-.buttonsecondary {
-  background: red;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.95rem;
+  width: 200px;
+  text-align: center;
 }
