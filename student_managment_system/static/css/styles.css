@@ -10,6 +10,7 @@ body {
   background: #f5f7fb;
   color: #222;
   padding: 32px;
+  height: auto;
 }
 
 .container {
@@ -23,6 +24,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  height: fit-content;
 }
 
 h1 {
@@ -39,7 +41,7 @@ table {
 }
 
 thead th {
-  text-align: left;
+  text-align: center;
   font-size: 0.95rem;
   padding: 12px 14px;
   background: #222;
@@ -58,6 +60,7 @@ tbody td {
 td, th {
   white-space: wrap;
   display: table-cell;
+  text-align: center;
 }
 
 .button {
