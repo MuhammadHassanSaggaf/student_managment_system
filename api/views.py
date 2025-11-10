@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from student_managment_system.models import Student
+from .serializers import StudentSerializer
 # Create your views here.
 
 @api_view(['GET'])
 def get_list(request):
-    data = {
-        "message": "Welcome to the API!",
-        "items": [1, 2, 3, 4, 5]
-    }
-    return Response(data)
+    student = Student.objects.all()
+    serializer = StudentSerializer(student, many=True)
+    return Response(serializer.data)
+
+@api_view(["POST"])
+def create_student(request):
+    serializer = StudentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.data)
