@@ -18,3 +18,9 @@ def create_student(request):
         serializer.save()
         return Response(serializer.data, status=201)
     return Response(serializer.data)
+  
+@api_view(["DELETE"])
+def delete_student(request, pk):
+    student = Student.objects.get(id = pk)
+    student.delete()
+    return Response("Student Deleted Successfully", status=204)
