@@ -6,6 +6,11 @@ name = "pypi"
 [packages]
 django = "*"
 psycopg = {extras = ["binary"], version = "*"}
+python-decouple = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-environ = "*"
 
 [dev-packages]
 

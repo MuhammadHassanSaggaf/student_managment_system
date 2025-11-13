@@ -11,19 +11,28 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+import environ
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# init environ
+env = environ.Env(
+    DEBUG=(bool, True),
+)
+# read .env file in project root
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8y*^lwbrhw2$+&-v7-*jvx=$pba7&foo8boo-50(n&ihai*0d6'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=True)
 
 ALLOWED_HOSTS = []
 
@@ -85,11 +94,11 @@ WSGI_APPLICATION = 'SMS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'TheArchitect',
-        'PASSWORD': 'Valamogulez001',
-        'HOST': 'student-managment-db.cgny8ywcoss3.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
+        "NAME": env("DB_NAME"),
+        "USER": env("DB_USER"),
+        "PASSWORD": env("DB_PASSWORD"),
+        "HOST": env("DB_HOST"),
+        "PORT": env("DB_PORT"),
         
     }
 }
