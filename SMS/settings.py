@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'student_managment_system',  # Your custom app
     'rest_framework',
     "api", # API app for DRF functionality
+    'accounts',
 ]
 
 MIDDLEWARE = [
