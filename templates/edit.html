@@ -12,7 +12,7 @@
     <h1>{% if student %}Edit Student{% else %}Add a Student{% endif %}</h1>
 
     {# Use the appropriate action URL: edit when student exists, otherwise add #}
-    <form method="POST" action="{% if student %}{% url 'edit' student.id %}{% else %}{% url 'add' %}{% endif %}">
+    <form method="POST" action="{% if student %}{% url 'student_managment_system:edit' student.id %}{% else %}{% url 'add' %}{% endif %}">
       {% csrf_token %}
 
       <label for="admission_number">Admission Number:</label>
@@ -49,7 +49,7 @@
 
       <div class="actions form-full" style="margin-top:12px">
         <button type="submit" class="button">{% if student %}Save Changes{% else %}Save Student{% endif %}</button>
-        <a href="{% url 'list' %}" class="buttoncancel" style="margin-left:10px">Cancel</a>
+        <a href="{% url 'student_managment_system:list' %}" class="buttoncancel" style="margin-left:10px">Cancel</a>
       </div>
     </form>
   </div>

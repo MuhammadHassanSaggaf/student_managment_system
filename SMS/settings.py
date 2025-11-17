@@ -98,11 +98,16 @@ DATABASES = {
         "NAME": env("DB_NAME"),
         "USER": env("DB_USER"),
         "PASSWORD": env("DB_PASSWORD"),
-        "HOST": env("DB_HOST"),
+        # "HOST": env("DB_HOST"),
+        "HOST": "3.223.90.3",
         "PORT": env("DB_PORT"),
         
     }
 }
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
+]
 
 
 # Password validation

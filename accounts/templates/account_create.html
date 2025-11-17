@@ -1,0 +1,55 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create Account</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="hdr">
+      <h1>Create an Account</h1>
+      <div class="sub">Link your student record using your admission number</div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="msg msg--{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="card">
+      <form method="post" class="account-form">
+        {% csrf_token %}
+        <div>
+          <label>Username
+            <input type="text" name="username" placeholder="pick a username" required>
+          </label>
+        </div>
+
+        <div>
+          <label>Admission number
+            <input type="text" name="admission_number" placeholder="e.g. ADM12345" required>
+          </label>
+        </div>
+
+        <div class="full">
+          <label>Password
+            <input type="password" name="password" placeholder="choose a secure password" required>
+          </label>
+        </div>
+
+        <div class="full row" style="justify-content:flex-end;">
+          <button type="submit" class="button">Create account</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="small center">
+      Already got an account? <a class="link" href="{% url 'accounts:login' %}">Sign in</a>
+    </div>
+  </div>
+</body>
+</html>

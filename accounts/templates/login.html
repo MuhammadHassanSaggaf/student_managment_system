@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="hdr">
+      <h1>Sign in</h1>
+      <div class="sub">Access your student dashboard</div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="msg msg--{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="card">
+      <form method="post" class="account-form">
+        {% csrf_token %}
+        <div class="full">
+          <label>Username
+            <input type="text" name="username" placeholder="username" required>
+          </label>
+        </div>
+
+        <div class="full">
+          <label>Password
+            <input type="password" name="password" placeholder="password" required>
+          </label>
+        </div>
+
+        <div class="full row" style="justify-content:flex-end;">
+          <button type="submit" class="button">Sign in</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="small center">
+      Need an account? <a class="link" href="{% url 'accounts:account_create' %}">Create one</a>
+    </div>
+  </div>
+</body>
+</html>

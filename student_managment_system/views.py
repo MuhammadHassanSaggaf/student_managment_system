@@ -15,7 +15,7 @@ def add(request):
             course_taken = request.POST["course_taken"],
             gender = request.POST["gender"],                 # "Male"/"Female"/"Other"
         )
-        return redirect('list')  # Redirect to the list view after adding a student
+        return redirect("student_managment_system:list")  # Redirect to the list view after adding a student
     return render(request, 'add.html')  # Render the add student form template
   
 def edit(request, student_id):
@@ -46,7 +46,7 @@ def edit(request, student_id):
                 student.course_taken = course_taken
                 student.gender = gender
                 student.save()
-                return redirect("list")
+                return redirect("student_managment_system:list")
 
     # GET or validation errors -> render edit form prefilled
     return render(request,
@@ -59,4 +59,4 @@ def edit(request, student_id):
 def delete(request, student_id):
     student = get_object_or_404(Student, pk=student_id)
     student.delete()
-    return redirect('list')
+    return redirect("student_managment_system:list")

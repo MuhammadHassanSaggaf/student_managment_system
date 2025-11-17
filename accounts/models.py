@@ -1,3 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+from student_managment_system.models import Student
 
-# Create your models here.
+class Account(models.Model):
+    # link to Django User (stores username + password hash)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # link to a Student record (one account per student)
+    student = models.OneToOneField(Student, on_delete=models.PROTECT)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} ({self.student.admission_number})"

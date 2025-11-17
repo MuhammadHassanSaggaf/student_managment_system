@@ -25,5 +25,6 @@ urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),  # Debug toolbar URL
     path('student_managment_system/', include('student_managment_system.urls' )),
     path("", RedirectView.as_view(url="/student_managment_system/list/", permanent=False)),
-    path("api/", include("api.urls"))
+    path("api/", include("api.urls")),
+    path('accounts/', include('accounts.urls')),
 ]

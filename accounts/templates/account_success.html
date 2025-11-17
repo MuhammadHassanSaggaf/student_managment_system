@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Account Created</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+  <div class="container">
+    <div class="hdr">
+      <h1>Account created</h1>
+      <div class="sub">Account successfully linked to student</div>
+    </div>
+
+    <div class="card">
+      <div class="meta">Username</div>
+      <h2 style="margin:6px 0 12px 0;">{{ account.user.username }}</h2>
+
+      <div class="meta">Student</div>
+      <p style="margin:6px 0 12px 0;">
+        {{ account.student.first_name }} {{ account.student.last_name }} — {{ account.student.admission_number }}
+      </p>
+
+      <div class="row" style="justify-content:flex-end; margin-top:12px;">
+        <a class="button" href="{% url 'accounts:account_detail' account.student.admission_number %}">View Account</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

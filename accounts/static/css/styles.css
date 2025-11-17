@@ -1,0 +1,260 @@
+/* File: accounts/static/accounts/accounts.css
+   Purpose: Styles for account templates (login, signup, success, detail, list)
+   Built on the base styles you provided.
+*/
+
+/* ---- Base / reset (keeps your original rules) ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  background: #f5f7fb;
+  color: #222;
+  padding: 32px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container used in account templates */
+.container {
+  max-width: 960px;      /* explicit, predictable width for forms/tables */
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(19, 23, 28, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+}
+
+/* Header/title */
+.hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.hdr h1 {
+  font-size: 1.6rem;
+  color: #0f1724;
+  margin: 0;
+  font-weight: 700;
+}
+.hdr .sub {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Card variant for small panels */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(19,23,28,0.04);
+}
+
+/* Message banners (success / error / info) */
+.msg {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.msg--success { background: #ecfdf5; color: #064e3b; border: 1px solid rgba(16,185,129,0.12); }
+.msg--error   { background: #fff1f2; color: #881337; border: 1px solid rgba(239,68,68,0.08); }
+.msg--info    { background: #eef2ff; color: #3730a3; border: 1px solid rgba(99,102,241,0.06); }
+
+/* Form layout improvements */
+form.account-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 20px;
+  align-items: start;
+  width: 100%;
+}
+form.account-form .full {
+  grid-column: 1 / -1;
+}
+form.account-form label {
+  font-size: 0.9rem;
+  color: #0b1220;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.95rem;
+  color: #0b1220;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: rgba(30,64,175,0.9);
+  box-shadow: 0 0 0 4px rgba(30,64,175,0.06);
+}
+
+/* Buttons */
+.button, .editbutton, .buttonsecondary, .buttoncancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .06s ease, box-shadow .06s ease;
+}
+.button:hover, .editbutton:hover, .buttonsecondary:hover, .buttoncancel:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(15,19,28,0.06); }
+.button:active, .editbutton:active { transform: translateY(0); }
+
+.button {
+  background: #0b1220; /* charcoal */
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 220px;
+  text-align: center;
+  border: none;
+}
+.button--ghost {
+  background: transparent;
+  color: #0b1220;
+  border: 1px solid rgba(15,23,42,0.06);
+  width: auto;
+  padding: 8px 12px;
+}
+
+/* Smaller actions used on rows */
+.editbutton {
+  background: #0b1220;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  width: 88px;
+  height: 34px;
+}
+.buttonsecondary, .buttoncancel {
+  background: #ef4444;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 120px;
+}
+
+/* Table styles for account_list */
+.table-wrap {
+  overflow: auto;
+  border-radius: 8px;
+  width: 100%;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+thead th {
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  background: #0b1220;
+  color: white;
+  border-bottom: 1px solid rgba(15, 19, 28, 0.06);
+  font-weight: 600;
+}
+tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(15, 19, 28, 0.04);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* small helper cells */
+.cell-left { text-align: left; }
+.cell-right { text-align: right; }
+
+/* Avatar for account_detail */
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: linear-gradient(135deg,#e6eefc,#f8fafd);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #0b1220;
+  font-size: 1.2rem;
+  box-shadow: 0 6px 14px rgba(11,18,32,0.06);
+}
+
+/* account detail layout */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px 24px;
+  align-items: center;
+}
+
+/* tiny meta row */
+.meta {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* form helpers and small print */
+.small {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* link styles */
+a.link {
+  color: #0b5cff;
+  text-decoration: none;
+}
+a.link:hover { text-decoration: underline; }
+
+/* Responsive behavior */
+@media (max-width: 820px) {
+  .container { padding: 18px; }
+  form.account-form { grid-template-columns: 1fr; }
+  .hdr { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .button { width: 100%; }
+  table { min-width: 0; font-size: 0.92rem; }
+}
+
+/* Accessibility: focus visible for keyboard users */
+:focus-visible {
+  outline: 3px solid rgba(59,130,246,0.18);
+  outline-offset: 2px;
+}
+
+/* tiny print: used under inputs for hints/errors */
+.form-note { font-size: 0.82rem; color: #6b7280; }
+.form-error { font-size: 0.9rem; color: #b91c1c; }
+
+/* utility */
+.row { display:flex; gap:10px; align-items:center; }
+.center { text-align:center; }
+.space-between { display:flex; justify-content:space-between; align-items:center; gap:12px; }

@@ -36,9 +36,9 @@
                 <td class = "edit_delete">
 
                     <button class="editbutton">
-                        <a href="{% url 'edit' student.id %}" class="editbutton">Edit</a>
+                        <a href="{% url 'student_managment_system:edit' student.id %}" class="editbutton">Edit</a>
                     </button>
-                    <form method="post" action="{% url 'delete' student.id %}" style="display:inline" onsubmit="return confirm('Delete {{ student.first_name }} {{ student.last_name }}?');">
+                    <form method="post" action="{% url 'student_managment_system:delete' student.id %}" style="display:inline" onsubmit="return confirm('Delete {{ student.first_name }} {{ student.last_name }}?');">
                     {% csrf_token %}
                         <button type="submit" class="buttonsecondary">Delete</button>
                     </form>
@@ -48,7 +48,7 @@
         </tbody>
     </table>
     <button  class="button">
-        <a href="{% url 'add' %}" class = "button">Add a student</a>
+        <a href="{% url 'student_managment_system:add' %}" class = "button">Add a student</a>
     </button>
 </div>
 </body>
